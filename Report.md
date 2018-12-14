@@ -18,16 +18,20 @@ For the above algorithm, the hyperparameters are:
 
 ###  Model Architectures
 
-The neural networks used in this project consist of three fully connected layers. The first layer has input size of 37 and output size of 64, the second layer has both input and output size as 64, and the third layer has input size of 64 and output size of 4. The first and second layer has relu function as their activation, and the third layer has linear activation function.
+There are two neural networks in this mdoel,  actor network and critic network.
+
+The actor network consists of one hidden layer and one output layer. The hidden layer has input size of 33(size of state) and output size of 256, the output layer has input size of 256 and output size of 4(size of action). The hidden layer has relu function as its activation, and the output layer has hyperbolic tangent activation function.
+
+The critic network consists of three hidden layers and one output layer. The first layer has input size of 33(size of state) and output size of 256, the second layer concatnate the output of first layer and the action vector, which has input size of 260(256+4) and output size of 256, the third layer has input size of 256 and output size of 128, the output layer has input size of 128 and output size of 1. The three hidden layers all have leaky relu function as their activations, and the output layer has linear activation function.
 
 ### Plot of Rewards
 
 ![Learning Curve](learning_curve.png)
 
 
-Environment solved in 375 episodes, average score is 13.04
+The agent is not able to learn from the environment
 
 ### Ideas for Future Work
 
-- Use pixel image as input to train the agent. Although using this method, states like velocity is harder to get, the perception of the world would be better represented since first person view contains more information than ray-based perception. Stacking multiple pixel images together as input can be a good proxy for getting velocity. 
-- Use deeper neural network as the Q-network. Especially if we want to use pixel image as input, a CNN-based neural network can be implemented and can get better result than DNN
+- Use 20 agents instead of one agent. The parallel training regime can result in faster and more stable agents
+- Try other algorithms such as Proximal Policy Optimization (PPO), Trust Region Policy Optimization (TRPO) and Truncated Natural Policy Gradient (TNPG), and Distributed Distributional Deterministic Policy Gradients (D4PG) to see whether they can yield better performance
