@@ -18,7 +18,7 @@ For the above algorithm, the hyperparameters are:
 
 ###  Model Architectures
 
-There are two neural networks in this mdoel,  actor network and critic network.
+There are two neural networks in this model,  actor network and critic network.
 
 The actor network consists of one hidden layer and one output layer. The hidden layer has input size of 33(size of state) and output size of 256, the output layer has input size of 256 and output size of 4(size of action). The hidden layer has relu function as its activation, and the output layer has hyperbolic tangent activation function.
 
