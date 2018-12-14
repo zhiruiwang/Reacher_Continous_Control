@@ -22,7 +22,7 @@ The neural networks used in this project consist of three fully connected layers
 
 ### Plot of Rewards
 
-![Learning Curve](learning curve.png)
+![Learning Curve](learning_curve.png)
 
 
 Environment solved in 375 episodes, average score is 13.04
